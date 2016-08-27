@@ -8,7 +8,7 @@ module.exports = function(bot) {
         /**
          * Appel de la librairie de fonctions de l'application.
          */
-        var func = require('../functions.js');
+        var func = require('../libs/functions.js');
 
         /**
          * Déclaration des variables
@@ -26,6 +26,8 @@ module.exports = function(bot) {
             Affichage des messages dans la console.
             Inclut les URL des fichiers envoyés.
 
+            TODO : Gérer les messages privés.
+
          =========================================================== */
 
         /**
@@ -37,7 +39,9 @@ module.exports = function(bot) {
         if(event.d.attachments.length > 0)
             attachment = " <" + event.d.attachments[0].url + "> "
 
-        console.log('{' + bot.channels[channelID].name + '} [' + timestamp + '] <' + user + '> ' + message + attachment);
+        // Si c'est un message privé, on ne le gère pas. (voir TODO).
+        if(!func.isDirectMessage(bot, event))
+            console.log('{' + bot.channels[channelID].name + '} [' + timestamp + '] <' + user + '> ' + message + attachment);
 
 
 
@@ -49,7 +53,7 @@ module.exports = function(bot) {
 
         if(message.isCommand()) {
 
-            var command = require('../command.js');
+            var command = require('../libs/command.js');
             var output = command.run(event, function(output, error) {
 
                 // Si la commande retourne une erreur, on la gère.

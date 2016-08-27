@@ -29,9 +29,9 @@ if(config.token == "<bot_token_here>") {
  *
  * Le paramètre {object} bot est obligatoire.
  */
-require('./libs/events/onReady.js')(bot);
-require('./libs/events/onDisconnect.js')(bot);
-require('./libs/events/onMessage.js')(bot);
-require('./libs/events/onAny.js')(bot);
+require('./events/onReady.js')(bot);
+require('./events/onDisconnect.js')(bot);
+require('./events/onMessage.js')(bot);
+require('./events/onAny.js')(bot);
 
 console.log("[INFO] Le chargement du bot s'est déroulé avec succès.");

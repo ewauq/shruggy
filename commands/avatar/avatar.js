@@ -1,24 +1,30 @@
-var triggers = [
-    "avatar",
-    "photo"
-]
+var command = {
 
-var responses = [
-    "Voici l'avatar de **${username}** : ${url}"
-]
+    name: "avatar",
 
-var errors = [
-    "J'ai besoin que tu mentionnes un utilisateur.",
-    "Il me faut un utilisateur mentionné après la commande.",
-    "Cette commande a besoin de la mention d'un utilisateur. ",
-    "Cette commande nécessite la mention d'un utilisateur.",
-    "Après la commande, j'ai besoin de la mention d'un utilisateur.",
-    "J'ai besoin d'une mention avec cette commande.",
-    "Tu as oublié de mentionner un utilisateur.",
-    "Il faut préciser un utilisateur en le mentionnant."
-]
+    triggers: [
+        "avatar",
+        "photo"
+    ],
 
-exports.triggers = triggers;
+    responses: [
+        "Voici l'avatar de **${username}** : ${url}"
+    ],
+
+    errors: [
+        "J'ai besoin que tu mentionnes un utilisateur.",
+        "Il me faut un utilisateur mentionné après la commande.",
+        "Cette commande a besoin de la mention d'un utilisateur. ",
+        "Cette commande nécessite la mention d'un utilisateur.",
+        "Après la commande, j'ai besoin de la mention d'un utilisateur.",
+        "J'ai besoin d'une mention avec cette commande.",
+        "Tu as oublié de mentionner un utilisateur.",
+        "Il faut préciser un utilisateur en le mentionnant."
+    ]
+
+};
+
+exports.triggers = command.triggers;
 
 /**
  * Retourne le lien de l'avatar de l'utilisateur mentionné.
@@ -29,7 +35,6 @@ exports.run = function(event, callback) {
 
     this.output;
     this.error;
-    this.name = "avatar";
 
     // Exécution normale du code.
     try {
@@ -38,8 +43,8 @@ exports.run = function(event, callback) {
 
         // Si aucune mention n'est précisée.
         if(event.d.mentions.length == 0) {
-            this.error = "La commande <" + this.name + "> a besoin d'un paramètre.";
-            this.output = func.randomize(errors);
+            this.error = "La commande <" + command.name + "> a besoin d'un paramètre.";
+            this.output = func.randomize(command.errors);
         }
 
         // Si la mention existe.
@@ -56,7 +61,7 @@ exports.run = function(event, callback) {
             };
 
             // Récupération d'une phrase aléatoire et remplacement des littéraux.
-            this.output = func.randomize(responses).template(data);
+            this.output = func.randomize(command.responses).template(data);
 
         }
 
@@ -65,11 +70,11 @@ exports.run = function(event, callback) {
     // Si les réponses ne sont pas trouvées, on envoie une erreur.
     catch(e) {
 
-        if(!responses) {
-            this.error = "Les phrases de réponses de la commande <" + this.name + "> n'ont pas été trouvées.";
+        if(!command.responses) {
+            this.error = "Les phrases de réponses de la commande <" + command.name + "> n'ont pas été trouvées.";
         }
         else {
-            this.error = "La commande <" + this.name + "> a provoqué une erreur : " + e.message;
+            this.error = "La commande <" + command.name + "> a provoqué une erreur : " + e.message;
         }
 
     }

@@ -1,15 +1,21 @@
-var triggers = [
-    "ping"
-]
+var command = {
 
-var responses = [
-    "Pong.",
-    "Pong !",
-    "PONG !",
-    ":ping_pong:"
-]
+    name: "ping",
 
-exports.triggers = triggers;
+    triggers: [
+        "ping"
+    ],
+
+    responses: [
+        "Pong.",
+        "Pong !",
+        "PONG !",
+        ":ping_pong:"
+    ]
+
+};
+
+exports.triggers = command.triggers;
 
 /**
  * Retourne une phrase aléatoire pour la commande Ping.
@@ -20,24 +26,23 @@ exports.run = function(event, callback) {
 
     this.output;
     this.error;
-    this.name = "ping";
 
     // Exécution normale du code.
     try {
 
         var func = require('../../libs/functions.js');
 
-        this.output = func.randomize(responses);
+        this.output = func.randomize(command.responses);
     }
 
     // Si les réponses ne sont pas trouvées, on envoie une erreur.
     catch(e) {
 
-        if(!responses) {
-            this.error = "Les phrases de réponses de la commande <" + this.name + "> n'ont pas été trouvées.";
+        if(!command.responses) {
+            this.error = "Les phrases de réponses de la commande <" + command.name + "> n'ont pas été trouvées.";
         }
         else {
-            this.error = "La commande <" + this.name + "> a provoqué une erreur : " + e.message;
+            this.error = "La commande <" + command.name + "> a provoqué une erreur : " + e.message;
         }
 
     }

@@ -1,16 +1,17 @@
 var command = {
 
-    name: "example",
+    name: "aww",
 
     triggers: [
-        "example",
-        "exemple"
+        "aww",
+        "awww",
+        "awwww",
+        "awwwww",
+        "awwwwww"
     ],
 
     responses: [
-        "Voici un exemple de réponse.",
-        "Je suis une phrase de réponse.",
-        "Voici une réponse..."
+        "Le meilleur post de /r/aww (_${score} votes_) depuis hier : ${url}"
     ]
 
 };
@@ -18,7 +19,7 @@ var command = {
 exports.triggers = command.triggers;
 
 /**
- * Retourne le lien de l'avatar de l'utilisateur mentionné.
+ * Retourne le sujet le plus populaire de /r/aww des dernières 24h.
  * @param  {object} event Contient toutes les informations du message reçu.
  * @param  {function} callback Callback contenant le message retourné.
  */
@@ -32,9 +33,16 @@ exports.run = function(event, callback) {
 
         var func = require('../../libs/functions.js');
 
-        // On choisit aléatoirement une réponse parmi celles disponibles dans
-        // la variable "responses".
-        this.output = func.randomize(command.responses);
+        var json = JSON.parse(func.getFile("https://www.reddit.com/r/aww/top.json?limit=1"));
+
+        // Préparation des données pour les littéraux.
+        var data = {
+            score: json.data.children[0].data.score,
+            url: json.data.children[0].data.url
+        }
+
+        // Récupération d'une phrase aléatoire et remplacement des littéraux.
+        this.output = func.randomize(command.responses).template(data);
 
     }
 

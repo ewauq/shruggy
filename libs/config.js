@@ -9,7 +9,7 @@ module.exports = function() {
 
     var fs = require("fs");
     var filePath = __dirname + "/../config.json";
-    var defautConfig = { token: "<bot_token_here>", autorun: true, command_prefix: "/" };
+    var defautConfig = { token: "<bot_token_here>", autorun: true, command_prefix: "/", avatar_file: "avatar.png" };
     var config;
 
     // On vérifie si le fichier existe.

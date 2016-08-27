@@ -1,16 +1,16 @@
 var command = {
 
-    name: "example",
+    name: "help",
 
     triggers: [
-        "example",
-        "exemple"
+        "aide",
+        "info",
+        "infos",
+        "help"
     ],
 
     responses: [
-        "Voici un exemple de réponse.",
-        "Je suis une phrase de réponse.",
-        "Voici une réponse..."
+        "Pour l'instant je ne suis pas très évolué, un peu comme les humains, mais j'apprends vite.\n\nVoilà ce que je sais faire : \n\n- **/ping** permet d'envoyer un ping, facilement compréhensible par les humains.\n- **/8ball <phrase>** permet de savoir ce que je vois dans ma boule magique, ooooh !\n- **/cat /chat /chatte** permet d'afficher une photo de chat trop pipou (uniquement de chat, oui).\n- **/steam /steamstatus** permet d'afficher le statut du magasin de Steam.\n- **/aww** retourne l'image du meilleur post de /r/aww/ de ces dernières 24h.\n- **/players /joueurs <nom d'un jeu>** retourne le nombre de joueurs en ligne via Steam.\n- **/loutre /otter** retourne une image aléatoire de loutre.\n\nVoilà, et à part ça, mon but ultime est de dominer le monde, mais ça tout le monde sait déjà."
     ]
 
 };
@@ -18,7 +18,7 @@ var command = {
 exports.triggers = command.triggers;
 
 /**
- * Retourne le lien de l'avatar de l'utilisateur mentionné.
+ * Retourne un message d'aide à l'utilisateur qui utilise la commande.
  * @param  {object} event Contient toutes les informations du message reçu.
  * @param  {function} callback Callback contenant le message retourné.
  */
@@ -32,8 +32,6 @@ exports.run = function(event, callback) {
 
         var func = require('../../libs/functions.js');
 
-        // On choisit aléatoirement une réponse parmi celles disponibles dans
-        // la variable "responses".
         this.output = func.randomize(command.responses);
 
     }

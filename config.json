@@ -1,5 +1,6 @@
 {
     "token": "MjE4NjkwNjU1MDgwMTUzMDg5.CqG6kg.2Q0Ogk6m7jxbA-mEH9G7zoABmJ8",
     "autorun": true,
-    "command_prefix": "/"
+    "command_prefix": "/",
+    "avatar_file": "shruggy.png"
 }

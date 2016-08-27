@@ -1,0 +1,33 @@
+{
+    "soundcloud": {
+        "client_id": "10d74f8e358d5dca7f573d58b96d9fff",
+        "api_url": "http://api.soundcloud.com/users/${podcast_id}/tracks/?client_id=${client_id}&limit=1",
+        "watchlist": [
+            {
+                "name": "ZQSD.fr",
+                "id": 42090707,
+                "last": 279346106
+            },
+            {
+                "name": "QuickLoad",
+                "id": 239157122,
+                "last": 279343078
+            },
+            {
+                "name": "FactorCast",
+                "id": 230577911,
+                "last": 274853172
+            },
+            {
+                "name": "Gamekult",
+                "id": 110920201,
+                "last": 273858185
+            },
+            {
+                "name": "NOGame",
+                "id": 174362989,
+                "last": 272430405
+            }
+        ]
+    }
+}
