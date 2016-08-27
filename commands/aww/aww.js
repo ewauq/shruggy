@@ -11,7 +11,7 @@ var command = {
     ],
 
     responses: [
-        "Le meilleur post de /r/aww (_${score} votes_) depuis hier : ${url}"
+        "Le meilleur post du jour sur reddit.com/r/aww (_${score} votes_) : ${url}"
     ]
 
 };
