@@ -25,24 +25,6 @@ var command = {
         "En principe, on me donne le nom d'un jeu avec cette commande."
     ],
 
-    error_empty: [
-        "J'ai besoin du nom précis d'un jeu.",
-        "Sans un nom de jeu, je ne pourrais pas t'aider.",
-        "Il me faut le nom d'un jeu après la commande.",
-        "Je ne peux pas trouver d'infos si tu ne me donnes pas un jeu.",
-        "Avec le nom d'un jeu c'est mieux.",
-        "En principe, on me donne le nom d'un jeu avec cette commande."
-    ],
-
-    error_empty: [
-        "J'ai besoin du nom précis d'un jeu.",
-        "Sans un nom de jeu, je ne pourrais pas t'aider.",
-        "Il me faut le nom d'un jeu après la commande.",
-        "Je ne peux pas trouver d'infos si tu ne me donnes pas un jeu.",
-        "Avec le nom d'un jeu c'est mieux.",
-        "En principe, on me donne le nom d'un jeu avec cette commande."
-    ],
-
     error_data_not_found: [
         "Le nombre de joueurs n'est pas disponible pour ce jeu sur SteamDB.",
         "Le total de joueurs en ligne pour ce jeu semble avoir été désactivé sur SteamDB."
@@ -54,7 +36,6 @@ var command = {
         "Ce titre de jeu ne retourne aucune information. Essayez un titre plus précis...",
         "Ce nom n'existe pas dans ma base de données. Essayez un titre plus précis..."
     ]
-
 
 };
 
@@ -100,8 +81,10 @@ exports.run = function(event, callback) {
             // Récupération des données du jeu recherché.
             getSteamDBData(matches[1], function(data, error) {
 
+                console.log(data);
+
                 // S'il n'y a pas d'erreur.
-                if(!error) {
+                if(!error && data.players) {
 
                     // Préparation des données pour les littéraux.
                     var data = {
@@ -111,11 +94,13 @@ exports.run = function(event, callback) {
 
                     // Récupération d'une phrase aléatoire et remplacement des littéraux.
                     this.output = func.randomize(command.responses).template(data);
+
                 }
 
                 // S'il y a une erreur.
                 else {
-                    this.output = command.error;
+                    this.output = func.randomize(command.error_no_result);
+                    this.error = error;
                 }
 
                 callback(this.output, this.error);
@@ -174,7 +159,7 @@ exports.run = function(event, callback) {
                 // On calcule un score de correspondance entre le titre du jeux
                 // et les mots clés de la recherche. On limite le score à 3 chiffres
                 // après la virgule.
-                return data.object.title.score(str).toFixed(3);
+                return data.object.title.toLowerCase().score(str).toFixed(3);
             })
         ])
         .data(function(data) {
@@ -184,7 +169,7 @@ exports.run = function(event, callback) {
                 return;
 
             var games = data;
-            var blacklist = ["dedicated server", "beta", "Press", "nvidia", "nvida", "Age Rating"];
+            var blacklist = ["dedicated server", "beta", "press", "nvidia", "nvida", "age rating", "ps3", "xbox", "ps4"];
             var words = str.split(' ');
 
             // Filtrage des résultats pour ne garder que ce qu'on recherche.
