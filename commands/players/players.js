@@ -81,8 +81,6 @@ exports.run = function(event, callback) {
             // Récupération des données du jeu recherché.
             getSteamDBData(matches[1], function(data, error) {
 
-                console.log(data);
-
                 // S'il n'y a pas d'erreur.
                 if(!error && data.players) {
 
