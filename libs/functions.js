@@ -163,7 +163,7 @@ exports.getFile = function(url) {
 
 /**
  * Filtre les lignes d'un objet. Retourne les lignes gardées et supprimées leurs propriétés respectives.
- * La recherche est stricte, elle détecte uniquement sur les mots complets.
+ * La recherche est stricte, elle détecte uniquement sur les mots complets, peu importe la casse.
  * @param  {object} obj Objet a filtrer.
  * @param  {object} words Les mots à trouver.
  * @param  {string} property Nom de la propriété concernée par le filtrage.
