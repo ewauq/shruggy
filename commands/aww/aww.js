@@ -13,7 +13,7 @@ var command = {
     ],
 
     responses: [
-        "Le meilleur post du jour sur reddit.com/r/aww (_${score} votes_) : ${url}"
+        "Le meilleur post du jour sur reddit.com/r/aww (_${score} votes_) : **${title}** ${url}"
     ]
 
 };
@@ -40,6 +40,7 @@ exports.run = function(event, callback) {
 
         // Préparation des données pour les littéraux.
         var data = {
+            title: json.data.children[0].data.title,
             score: json.data.children[0].data.score,
             url: json.data.children[0].data.url
         }
