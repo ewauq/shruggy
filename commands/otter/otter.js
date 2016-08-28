@@ -2,6 +2,8 @@ var command = {
 
     name: "otter",
 
+    description: "**${prefix}otter ${prefix}loutre**  Retourne une image aléatoire de loutre.",
+
     triggers: [
         "loutre",
         "loutres",
@@ -17,6 +19,7 @@ var command = {
 };
 
 exports.triggers = command.triggers;
+exports.description = command.description;
 
 /**
  * Retourne une image aléatoire de loutre parmi 600 disponibles sur imgur.

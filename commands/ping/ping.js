@@ -2,6 +2,8 @@ var command = {
 
     name: "ping",
 
+    description: "**${prefix}ping**  Retourne un ping, c'est tout.",
+
     triggers: [
         "ping"
     ],
@@ -16,6 +18,7 @@ var command = {
 };
 
 exports.triggers = command.triggers;
+exports.description = command.description;
 
 /**
  * Retourne une phrase aléatoire pour la commande Ping.

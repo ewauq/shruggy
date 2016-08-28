@@ -2,6 +2,8 @@ var command = {
 
     name: "cat",
 
+    description: "**${prefix}cat ${prefix}chat**  Retourne une image aléatoire de chat.",
+
     triggers: [
         "cat",
         "chat",
@@ -16,9 +18,10 @@ var command = {
 };
 
 exports.triggers = command.triggers;
+exports.description = command.description;
 
 /**
- * Retourne une image de chat aléatoire.
+ * Retourne une image aléatoire de chat.
  * @param  {object} event Contient toutes les informations du message reçu.
  * @param  {function} callback Callback contenant le message retourné.
  */

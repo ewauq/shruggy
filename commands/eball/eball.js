@@ -1,5 +1,9 @@
 var command = {
 
+    name: "8ball",
+
+    description: "**${prefix}8ball <question>**  Retourne une réponse sensée après avoir consulté sa boule magique.",
+
     triggers: [
        "8ball",
        "eball",
@@ -38,6 +42,7 @@ var command = {
 };
 
 exports.triggers = command.triggers;
+exports.description = command.description;
 
 /**
  * Retourne une phrase aléatoire.

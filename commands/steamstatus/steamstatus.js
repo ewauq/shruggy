@@ -2,6 +2,8 @@ var command = {
 
     name: "steamstatus",
 
+    description: "**${prefix}steam ${prefix}steamstore**  Retourne si le Store de Steam est disponible ou non.",
+
     triggers: [
         "steam",
         "steamstatus",
@@ -18,6 +20,7 @@ var command = {
 };
 
 exports.triggers = command.triggers;
+exports.description = command.description;
 
 /**
  * Retourne si le Store de Steam est disponible ou non.

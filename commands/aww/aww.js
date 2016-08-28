@@ -2,6 +2,8 @@ var command = {
 
     name: "aww",
 
+    description: "**${prefix}aww**  Retourne le sujet le plus populaire de /r/aww des dernières 24h.",
+
     triggers: [
         "aww",
         "awww",
@@ -17,6 +19,7 @@ var command = {
 };
 
 exports.triggers = command.triggers;
+exports.description = command.description;
 
 /**
  * Retourne le sujet le plus populaire de /r/aww des dernières 24h.

@@ -2,6 +2,8 @@ var command = {
 
     name: "avatar",
 
+    description: "**${prefix}avatar <@utilisateur>**  Retourne le lien de l'avatar de l'utilisateur mentionné.",
+
     triggers: [
         "avatar",
         "photo"
@@ -25,6 +27,7 @@ var command = {
 };
 
 exports.triggers = command.triggers;
+exports.description = command.description;
 
 /**
  * Retourne le lien de l'avatar de l'utilisateur mentionné.

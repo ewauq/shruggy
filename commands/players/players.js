@@ -2,6 +2,8 @@ var command = {
 
     name: "players",
 
+    description: "**${prefix}players ${prefix}joueurs <nom d'un jeu>**  Retourne le nombre de joueurs en ligne sur Steam d'un jeu demandé.",
+
     triggers: [
         "joueur",
         "joueurs",
@@ -40,6 +42,7 @@ var command = {
 };
 
 exports.triggers = command.triggers;
+exports.description = command.description;
 
 /*
     TODO

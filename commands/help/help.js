@@ -2,6 +2,8 @@ var command = {
 
     name: "help",
 
+    description: "**${prefix}help ${prefix}aide**  Retourne un message d'aide listant toutes les commandes disponibles.",
+
     triggers: [
         "aide",
         "info",
@@ -10,12 +12,13 @@ var command = {
     ],
 
     responses: [
-        "Pour l'instant je ne suis pas très évolué, un peu comme les humains, mais j'apprends vite.\n\nVoilà ce que je sais faire : \n\n- **/ping** permet d'envoyer un ping, facilement compréhensible par les humains.\n- **/8ball <phrase>** permet de savoir ce que je vois dans ma boule magique, ooooh !\n- **/cat /chat /chatte** permet d'afficher une photo de chat trop pipou (uniquement de chat, oui).\n- **/steam /steamstatus** permet d'afficher le statut du magasin de Steam.\n- **/aww** retourne l'image du meilleur post de /r/aww/ de ces dernières 24h.\n- **/players /joueurs <nom d'un jeu>** retourne le nombre de joueurs en ligne via Steam.\n- **/loutre /otter** retourne une image aléatoire de loutre.\n\nVoilà, et à part ça, mon but ultime est de dominer le monde, mais ça tout le monde sait déjà."
+        "Pour l'instant je ne suis pas très évolué, un peu comme les humains, mais j'apprends vite.\n\nVoilà ce que je sais faire :\n\n${command_list}\nVoilà, et à part ça, mon but ultime est de dominer le monde, mais ça tout le monde sait déjà."
     ]
 
 };
 
 exports.triggers = command.triggers;
+exports.description = command.description;
 
 /**
  * Retourne un message d'aide à l'utilisateur qui utilise la commande.
@@ -24,15 +27,33 @@ exports.triggers = command.triggers;
  */
 exports.run = function(event, callback) {
 
-    this.output;
+    this.output = "";
     this.error;
 
     // Exécution normale du code.
     try {
 
         var func = require('../../libs/functions.js');
+        var config = require('../../config.json');
 
-        this.output = func.randomize(command.responses);
+        var fs = require('fs');
+
+        var command_list = "";
+
+        // Liste des commandes du bot.
+        var commands = fs.readdirSync("./commands");
+
+        // Pour chaque commande présente, on récupère sa description.
+        for(var i in commands) {
+
+            var cmd = require(`${__dirname}/../${commands[i]}/${commands[i]}.js`);
+
+            if(cmd.description)
+                command_list = command_list + cmd.description.template({ prefix: config.command_prefix }) + "\n";
+
+        }
+
+        this.output = func.randomize(command.responses).template({ command_list });
 
     }
 
