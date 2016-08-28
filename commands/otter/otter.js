@@ -64,7 +64,7 @@ exports.run = function(event, callback) {
 
     // Si le script rencontre une erreur, alors il la retourne.
     catch(e) {
-        this.error = "La commande <" + command.name + "> a provoqué une erreur : " + e.message;
+        this.error = `La commande <${command.name}> a provoqué une erreur : ${e.message}`;
     }
 
     // Quoiqu'il arrive on appelle le callback pour retourner les données.

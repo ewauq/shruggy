@@ -37,11 +37,12 @@ module.exports = function(bot) {
 
         // Si un fichier est envoyé, on récupère son url.
         if(event.d.attachments.length > 0)
-            attachment = " <" + event.d.attachments[0].url + "> "
+            attachment = ` <${event.d.attachments[0].url}> `;
 
         // Si c'est un message privé, on ne le gère pas. (voir TODO).
         if(!func.isDirectMessage(bot, event))
-            console.log('{' + bot.channels[channelID].name + '} [' + timestamp + '] <' + user + '> ' + message + attachment);
+            console.log(`{${bot.channels[channelID].name}} [${timestamp}] <${user}> ${message} ${attachment}`);
+
 
 
 
@@ -58,7 +59,7 @@ module.exports = function(bot) {
 
                 // Si la commande retourne une erreur, on la gère.
                 if(error)
-                    console.log("[ERREUR] " + error);
+                    console.log(`[ERREUR] ${error}`);
 
                 // Envoi du message s'il existe.
                 if(output)

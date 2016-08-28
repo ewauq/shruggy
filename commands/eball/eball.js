@@ -68,11 +68,11 @@ exports.run = function(event, callback) {
         // Si la question est précisée.
         if(matches && matches.length > 0) {
 
-            var mention = "<@" + event.d.author.id + ">";
+            var mention = `<@${event.d.author.id}>`;
             var question = matches[1].capitalizeFirstLetter();
             var response = func.randomize(command.responses);
 
-            this.output = mention + " " + question + " : **" + response + "**";
+            this.output = `${mention} ${question} : **${response}**`;
         }
         // Si la question n'est pas précisée.
         else {
@@ -87,10 +87,10 @@ exports.run = function(event, callback) {
     catch(e) {
 
         if(!command.responses) {
-            this.error = "Les phrases de réponses de la commande <" + command.name + "> n'ont pas été trouvées.";
+            this.error = `Les phrases de réponses de la commande <${command.name}> n'ont pas été trouvées.`;
         }
         else {
-            this.error = "La commande <" + command.name + "> a provoqué une erreur : " + e.message;
+            this.error = `La commande <${command.name}> a provoqué une erreur : ${e.message}`;
         }
 
     }

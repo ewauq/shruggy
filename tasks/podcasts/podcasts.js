@@ -1,7 +1,7 @@
 var task = {
     name: "podcasts",
     timer: 600000,
-    output_channel: "218689835886444547",
+    output_channel: "213255127933517824",
     responses: [
         ":microphone2:  Nouveau podcast de ${name} : **${title}** > ${url}",
         ":microphone2:  ${name} vient de publier un nouveau podcast : **${title}** > ${url}",
@@ -30,7 +30,7 @@ exports.run = function(callback) {
     try {
 
         var podcasts = require('./podcasts.json');
-        var filename = __dirname + '/podcasts.json';
+        var filename = `${ __dirname}/podcasts.json`;
         var func = require('../../libs/functions.js');
 
         /**
@@ -100,7 +100,7 @@ exports.run = function(callback) {
 
     // Si les réponses ne sont pas trouvées, on envoie une erreur.
     catch(e) {
-        this.error = "La commande <" + this.name + "> a provoqué une erreur : " + e.message;
+        this.error = `La commande <${this.name}> a provoqué une erreur : ${e.message}`;
     }
 
     // Quoiqu'il arrive on appelle le callback.

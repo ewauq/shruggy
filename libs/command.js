@@ -32,7 +32,7 @@ exports.run = function(event, callback) {
     var fs = require('fs');
 
     // Liste des commandes du bot.
-    var commands = fs.readdirSync(__dirname + '/../commands/');
+    var commands = fs.readdirSync(`${__dirname}/../commands/`);
 
     // Pour chaque commande présente, on vérifie si elle est connue.
     commands.forEach(function(command) {
@@ -41,7 +41,7 @@ exports.run = function(event, callback) {
         if(found)
             return;
 
-        var cmd = require(__dirname + `/../commands/${command}/${command}.js`);
+        var cmd = require(`${__dirname}/../commands/${command}/${command}.js`);
 
         // On cherche la commande dans les triggers.
         if(name.in(cmd.triggers)) {
@@ -50,7 +50,7 @@ exports.run = function(event, callback) {
             found = true;
 
             // Si on a trouvé la commande dans les triggers, on l'exécute.
-            console.log("[COMMANDE] Exécution de la commande <" + name + "> :");
+            console.log(`[COMMANDE] Exécution de la commande <${name}> :`);
 
             // On passe event à la fonction afin de récupérer tous les détails
             // du message (contenu, mentions, etc...).
@@ -64,6 +64,6 @@ exports.run = function(event, callback) {
 
     // Si la commande n'a pas été trouvée, on le signale par un message d'erreur.
     if(!found)
-        console.log("[ERREUR] La commande <" + name + "> est inconnue.");
+        console.log(`[ERREUR] La commande <${name}> est inconnue.`);
 
 };

@@ -65,11 +65,11 @@ exports.run = function(event, callback) {
     // Si le script rencontre une erreur, alors il la retourne.
     catch(e) {
 
-        if(!responses) {
-            this.error = "Les phrases de réponses de la commande <" + command.name + "> n'ont pas été trouvées.";
+        if(!command.responses) {
+            this.error = `Les phrases de réponses de la commande <${command.name}> n'ont pas été trouvées.`;
         }
         else {
-            this.error = "La commande <" + command.name + "> a provoqué une erreur : " + e.message;
+            this.error = `La commande <${command.name}> a provoqué une erreur : ${e.message}`;
         }
 
     }

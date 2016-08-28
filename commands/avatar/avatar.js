@@ -46,7 +46,7 @@ exports.run = function(event, callback) {
 
         // Si aucune mention n'est précisée.
         if(event.d.mentions.length == 0) {
-            this.error = "La commande <" + command.name + "> a besoin d'un paramètre.";
+            this.error = `La commande <${command.name}> a besoin d'un paramètre.`;
             this.output = func.randomize(command.errors);
         }
 
@@ -60,7 +60,7 @@ exports.run = function(event, callback) {
             // Préparation des données pour les littéraux.
             var data = {
                 username: mention.username,
-                url: "https://cdn.discordapp.com/avatars/" + mention.id + "/" + mention.avatar + ".jpg"
+                url: `https://cdn.discordapp.com/avatars/${mention.id}/${mention.avatar}.jpg`
             };
 
             // Récupération d'une phrase aléatoire et remplacement des littéraux.
@@ -74,10 +74,10 @@ exports.run = function(event, callback) {
     catch(e) {
 
         if(!command.responses) {
-            this.error = "Les phrases de réponses de la commande <" + command.name + "> n'ont pas été trouvées.";
+            this.error = `Les phrases de réponses de la commande <${command.name}> n'ont pas été trouvées.`;
         }
         else {
-            this.error = "La commande <" + command.name + "> a provoqué une erreur : " + e.message;
+            this.error = `La commande <${command.name}> a provoqué une erreur : ${e.message}`;
         }
 
     }

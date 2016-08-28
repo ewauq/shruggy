@@ -47,10 +47,10 @@ exports.run = function(event, callback) {
     catch(e) {
 
         if(!command.responses) {
-            this.error = "Les phrases de réponses de la commande <" + command.name + "> n'ont pas été trouvées.";
+            this.error = `Les phrases de réponses de la commande <${command.name}> n'ont pas été trouvées.`;
         }
         else {
-            this.error = "La commande <" + command.name + "> a provoqué une erreur : " + e.message;
+            this.error = `La commande <${command.name}> a provoqué une erreur : ${e.message}`;
         }
 
     }

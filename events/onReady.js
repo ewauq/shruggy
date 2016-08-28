@@ -9,13 +9,13 @@ module.exports = function(bot) {
          var func = require('../libs/functions.js');
 
          console.log("====================================");
-         console.log("> Utilisateur : " + bot.username);
-         console.log("> Discriminant : " + bot.discriminator);
-         console.log("> Identifiant : " + bot.id);
+         console.log(`> Utilisateur : ${bot.username}`);
+         console.log(`> Discriminant : ${bot.discriminator}`);
+         console.log(`> Identifiant : ${bot.id}`);
          console.log("====================================");
 
         if(bot.connected)
-            console.log("[INFO] " + bot.username + " est maintenant connecté.");
+            console.log(`[INFO] ${bot.username} est maintenant connecté.`);
 
          // Mise à jour automatique de l'avatar du bot.
          if(func.updateAvatar(bot))
