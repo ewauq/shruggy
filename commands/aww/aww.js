@@ -45,7 +45,8 @@ exports.run = function(event, callback) {
         }
 
         // Récupération d'une phrase aléatoire et remplacement des littéraux.
-        this.output = func.randomize(command.responses).template(data);
+        // Remplace également le caractère html &amp; en &.
+        this.output = func.randomize(command.responses).template(data).replace(/&amp;/g, "&");
 
     }
 
