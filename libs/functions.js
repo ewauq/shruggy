@@ -58,8 +58,9 @@ String.prototype.capitalizeFirstLetter = function() {
  * à remplacer.
  *
  * Exemples :
- * ${name}   sera remplacé par obj.name,
- * ${title}  sera remplacé par obj.title, etc...
+ * ${name}     sera remplacé par obj.name
+ * ${title}    sera remplacé par obj.title
+ * ${user.id}  sera remplacé par obj.user.id
  *
  * @param  {object} obj Objet contenant les littéraux à remplacer.
  * @return {string} str La phrase modifée.
@@ -72,9 +73,11 @@ String.prototype.template = function(obj) {
 
     this.output = this;
 
-    for(var i in obj) {
-        var re = new RegExp("[$]\{" + i + "\}", "g");
-        this.output = this.output.replace(re, obj[i]);
+    var literals = exports.flattenObject(obj);
+
+    for(var name in literals) {
+        var re = new RegExp("[$]\{" + name + "\}", "g");
+        this.output = this.output.replace(re, literals[name]);
     }
 
     return this.output;
@@ -223,7 +226,6 @@ exports.writeJSON = function(filename, obj) {
 }
 
 
-
 /**
  * Met à jour l'avtar du bot en fonction du fichier spécifié dans config.json.
  * @param  {object} bot L'objet complet du bot.
@@ -250,8 +252,12 @@ exports.updateAvatar = function(bot) {
 }
 
 
-
-
+/**
+ * Retourne vrai si l'évènement concerne un message privé.
+ * @param  {object} bot L'objet complet du bot.
+ * @param  {object} event L'objet complet de l'évènement (onMessage).
+ * @return {boolean} bool Retourne true si c'est un message privé, sinon false.
+ */
 exports.isDirectMessage = function(bot, event) {
 
     var botDMChannelID = Object.keys(bot.directMessages).toString();
@@ -263,5 +269,149 @@ exports.isDirectMessage = function(bot, event) {
     else {
         return false;
     }
+
+}
+
+
+/**
+ * Retourne vrai si le bot est mentionné dans un message.
+ * @param  {object} bot L'objet complet du bot.
+ * @param  {object} event L'objet complet de l'évènement (onMessage).
+ * @return {boolean} bool Retourne true si le bot est mentionné, sinon false.
+ */
+exports.isBotMentioned = function(bot, event) {
+
+    var mentions = event.d.mentions;
+
+    if(mentions.length > 0) {
+
+        var mentions_id = [];
+
+        // Récupération de tous les ID des mentions.
+        for(var i in mentions) {
+            mentions_id.push(mentions[i].id);
+        }
+
+        // On cherche si le bot a été mentionné.
+        if(bot.id.in(mentions_id)) {
+            console.log(`[INFO] Mention du bot détectée.`);
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
+}
+
+
+/**
+ * Consulte tous les topics de l'application est retourne une réponse.
+ * @param  {string} message Le message reçu par le bot.
+ * @param  {object} dialogue Objet des détails du dernier message. (TODO: à retravailler)
+ * @param  {function} callback Le callback contenant la réponse envoyé par le bot.
+ */
+exports.getDialogueResponse = function(message, dialogue, callback) {
+
+    var fs = require('fs');
+
+    // JS et les regex sont sensibles à la casse.
+    var input = message.toLowerCase();
+
+    // Récupération de la liste de tous les topics.
+    var topics = fs.readdirSync(`${__dirname}/../topics/`);
+
+    // On parcourt tous les topics disponibles.
+    loop1:
+    for(var i in topics) {
+
+        var tpc = require(`${__dirname}/../topics/${topics[i]}`);
+
+        var expressions = tpc.expressions;
+
+        // Variable de marquage
+        var found = false;
+
+        // Si le topic n'a pas d'expressions, on saute au prochain.
+        if(!expressions)
+            continue;
+
+        // On récupère la liste des expressions.
+        for(var key in expressions) {
+
+            if(input.match(expressions[key])) {
+                found = true;
+
+                //TODO : Revoir le template global (date, heure actuelle, et autres infos...)
+                var response = exports.randomize(tpc.responses).template(dialogue);
+                callback(response);
+            }
+
+            // Si une expression correspond, on arrête de chercher.
+            if(found)
+                break loop1;
+
+        }
+
+    }
+
+    // Si le topic n'est pas trouvé.
+    if(!found) {
+        var tpc = require(`${__dirname}/../topics/default.json`);
+        callback(exports.randomize(tpc.i_do_not_understand));
+    }
+
+}
+
+
+/**
+ * [A garder ?]
+ * Calcule le temps séparant deux dates.
+ * @param  {date} now La date actuelle, ou la plus récente.
+ * @param  {date} old La date la plus ancienne.
+ * @return {object} obj L'objet contenant les informations recherchées.
+ */
+exports.elapsed = function(now, old) {
+
+    this.diff = (now - old);
+
+    return output = {
+        milliseconds: Math.floor(this.diff),
+        seconds: Math.floor(this.diff / 1000),
+        minutes: Math.floor(this.diff / 1000 / 60),
+        hours: Math.floor(this.diff / 1000 / 60 / 60)
+    };
+
+}
+
+
+/**
+ * Aplatit un objet en récupérant ses propriétés et ses valeurs.
+ * Largement inspiré de https://gist.github.com/penguinboy/762197
+ * @param  {object} obj L'objet à aplatir.
+ * @return {object} obj L'objet aplati.
+ */
+exports.flattenObject = function(obj) {
+
+    var output = {};
+
+	for (var a in obj) {
+
+        if(typeof(obj[a]) === 'object') {
+
+            var props = exports.flattenObject(obj[a]);
+
+            for(var x in props)
+                output[a + "." + x] = props[x];
+
+        }
+        else {
+            output[a] = obj[a];
+        }
+
+    }
+
+    return output;
 
 }
