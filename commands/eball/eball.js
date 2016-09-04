@@ -57,7 +57,7 @@ exports.run = function(event, callback) {
     // Exécution normale du code.
     try {
 
-        var func = require('../../libs/functions.js');
+        var _ = require('../../libs/functions.js');
 
         // Récupération du message.
         var message = event.d.content;
@@ -70,14 +70,14 @@ exports.run = function(event, callback) {
 
             var mention = `<@${event.d.author.id}>`;
             var question = matches[1].capitalizeFirstLetter();
-            var response = func.randomize(command.responses);
+            var response = _.randomize(command.responses);
 
             this.output = `${mention} ${question} : **${response}**`;
         }
         // Si la question n'est pas précisée.
         else {
 
-            this.output = func.randomize(command.errors);
+            this.output = _.randomize(command.errors);
 
         }
 

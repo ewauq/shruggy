@@ -6,7 +6,7 @@ module.exports = function(bot) {
      bot.on("ready", function(event) {
 
          // Appel des librairies nécessaires pour les tâches.
-         var func = require('../libs/functions.js');
+         var _ = require('../libs/functions.js');
 
          console.log("====================================");
          console.log(`> Utilisateur : ${bot.username}`);
@@ -18,7 +18,7 @@ module.exports = function(bot) {
             console.log(`[INFO] ${bot.username} est maintenant connecté.`);
 
          // Mise à jour automatique de l'avatar du bot.
-         if(func.updateAvatar(bot))
+         if(_.updateAvatar(bot))
             console.log("[INFO] L'avatar a été mis à jour.");
          else
             console.log("[ERREUR] L'avatar n'a pu être mis à jour. (voir l'erreur ci-dessus)");

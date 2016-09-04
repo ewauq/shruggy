@@ -33,7 +33,7 @@ exports.run = function(event, callback) {
     // Exécution normale du code.
     try {
 
-        var func = require('../../libs/functions.js');
+        var _ = require('../../libs/functions.js');
         var config = require('../../config.json');
 
         var fs = require('fs');
@@ -53,7 +53,7 @@ exports.run = function(event, callback) {
 
         }
 
-        this.output = func.randomize(command.responses).template({ command_list });
+        this.output = _.randomize(command.responses).template({ command_list });
 
     }
 

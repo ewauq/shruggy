@@ -34,8 +34,6 @@ exports.run = function(event, callback) {
     // Exécution normale du code.
     try {
 
-        var func = require('../../libs/functions.js');
-
         var q = "otter";
 
         var page = Math.floor(Math.random() * 10);

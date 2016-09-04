@@ -35,9 +35,9 @@ exports.run = function(event, callback) {
     // Exécution normale du code.
     try {
 
-        var func = require('../../libs/functions.js');
+        var _ = require('../../libs/functions.js');
 
-        var json = JSON.parse( func.getFile("https://steamgaug.es/api/v2") );
+        var json = JSON.parse( _.getFile("https://steamgaug.es/api/v2") );
 
         // Préparation des données pour les littéraux.
         var data = {

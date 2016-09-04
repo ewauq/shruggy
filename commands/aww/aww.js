@@ -34,9 +34,9 @@ exports.run = function(event, callback) {
     // Exécution normale du code.
     try {
 
-        var func = require('../../libs/functions.js');
+        var _ = require('../../libs/functions.js');
 
-        var json = JSON.parse(func.getFile("https://www.reddit.com/r/aww/top.json?limit=1"));
+        var json = JSON.parse(_.getFile("https://www.reddit.com/r/aww/top.json?limit=1"));
 
         // Préparation des données pour les littéraux.
         var data = {
@@ -47,7 +47,7 @@ exports.run = function(event, callback) {
 
         // Récupération d'une phrase aléatoire et remplacement des littéraux.
         // Remplace également le caractère html &amp; en &.
-        this.output = func.randomize(command.responses).template(data).replace(/&amp;/g, "&");
+        this.output = _.randomize(command.responses).template(data).replace(/&amp;/g, "&");
 
     }
 

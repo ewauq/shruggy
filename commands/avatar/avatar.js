@@ -42,12 +42,12 @@ exports.run = function(event, callback) {
     // Exécution normale du code.
     try {
 
-        var func = require('../../libs/functions.js');
+        var _ = require('../../libs/functions.js');
 
         // Si aucune mention n'est précisée.
         if(event.d.mentions.length == 0) {
             this.error = `La commande <${command.name}> a besoin d'un paramètre.`;
-            this.output = func.randomize(command.errors);
+            this.output = _.randomize(command.errors);
         }
 
         // Si la mention existe.
@@ -64,7 +64,7 @@ exports.run = function(event, callback) {
             };
 
             // Récupération d'une phrase aléatoire et remplacement des littéraux.
-            this.output = func.randomize(command.responses).template(data);
+            this.output = _.randomize(command.responses).template(data);
 
         }
 

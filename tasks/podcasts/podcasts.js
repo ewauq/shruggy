@@ -31,7 +31,7 @@ exports.run = function(callback) {
 
         var podcasts = require('./podcasts.json');
         var filename = `${ __dirname}/podcasts.json`;
-        var func = require('../../libs/functions.js');
+        var _ = require('../../libs/functions.js');
 
         /**
          * SOUNDCLOUD
@@ -54,7 +54,7 @@ exports.run = function(callback) {
             var url = podcasts.soundcloud.api_url.template(info);
 
             // Récupération du dernier podcast.
-            var json = JSON.parse( func.getFile(url) );
+            var json = JSON.parse( _.getFile(url) );
 
             // S'il n'y a rien retourné.
             if(!json)
@@ -77,14 +77,14 @@ exports.run = function(callback) {
                     url: track.url
                 };
 
-                this.output.message = func.randomize(task.responses).template(info);
+                this.output.message = _.randomize(task.responses).template(info);
 
                 console.log(this.output.message);
 
                 podcast.last = track.id;
 
                 // Réécriture du fichier podcasts.json.
-                func.writeJSON(filename, podcasts);
+                _.writeJSON(filename, podcasts);
 
                 break;
 

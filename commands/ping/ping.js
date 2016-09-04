@@ -33,9 +33,9 @@ exports.run = function(event, callback) {
     // Exécution normale du code.
     try {
 
-        var func = require('../../libs/functions.js');
+        var _ = require('../../libs/functions.js');
 
-        this.output = func.randomize(command.responses);
+        this.output = _.randomize(command.responses);
     }
 
     // Si les réponses ne sont pas trouvées, on envoie une erreur.

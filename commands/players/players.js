@@ -70,7 +70,7 @@ exports.run = function(event, callback) {
     // Exécution normale du code.
     try {
 
-        var func = require('../../libs/functions.js');
+        var _ = require('../../libs/functions.js');
 
         // Récupération du message.
         var message = event.d.content.toLowerCase();
@@ -94,13 +94,13 @@ exports.run = function(event, callback) {
                     }
 
                     // Récupération d'une phrase aléatoire et remplacement des littéraux.
-                    this.output = func.randomize(command.responses).template(data);
+                    this.output = _.randomize(command.responses).template(data);
 
                 }
 
                 // S'il y a une erreur.
                 else {
-                    this.output = func.randomize(command.error_no_result);
+                    this.output = _.randomize(command.error_no_result);
                     this.error = error;
                 }
 
@@ -109,7 +109,7 @@ exports.run = function(event, callback) {
 
         }
         else {
-            this.output = func.randomize(command.error_empty);
+            this.output = _.randomize(command.error_empty);
 
             callback(this.output, this.error);
         }
@@ -176,10 +176,10 @@ exports.run = function(event, callback) {
             // Filtrage des résultats pour ne garder que ce qu'on recherche.
             //
             // Suppression des jeux dont des termes sont blacklistés.
-            games = func.filter(games, blacklist, "title").included;
+            games = _.filter(games, blacklist, "title").included;
 
             // Récupération des titres contenant les mots complets recherchés.
-            games = func.filter(games, words, "title").excluded;
+            games = _.filter(games, words, "title").excluded;
 
             // Sélection et retour du meilleur résultat.
             games.sort(function(a,b) {
@@ -241,7 +241,7 @@ exports.run = function(event, callback) {
 
             // Si la recherche ne retourne rien, on retourne un message d'erreur.
             if(!data) {
-                var error = func.randomize(command.error_no_result);
+                var error = _.randomize(command.error_no_result);
                 onSuccess(false, error);
                 return;
             }
@@ -258,7 +258,7 @@ exports.run = function(event, callback) {
 
                 // Si la page existe mais la donnée non.
                 if(!players) {
-                    var error = func.randomize(command.error_data_not_found);
+                    var error = _.randomize(command.error_data_not_found);
                 }
 
                 onSuccess(result, error);
