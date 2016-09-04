@@ -1,0 +1,8 @@
+{
+    "expressions": [
+        "(quel(le)? est le sens[e]? de la vie[\\s]?(.+)?\\?)"
+    ],
+    "responses": [
+        "#(Essaye|Regarde|Tente|Va voir|Sûrement|Peut-être|Je pense que c'est|Probablement)( par ici| par là| là-bas)( :point_right::skin-tone-3:)"
+    ]
+}

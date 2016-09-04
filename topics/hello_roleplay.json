@@ -1,0 +1,9 @@
+{
+    "expressions": [
+        "(bonjour|salutation(s)?|bienvenu(e)?|mes respe(c)?t(s)?)(.+)?(voyageur|(é|e)tranger|monsieur|seigneur|gue(r){1,2}ier)"
+    ],
+
+    "responses": [
+        "#(Bien le bonjour|Bonjour|Salutations|Mes respects|Bienvenue|Je suis heureux de vous revoir|Je vous salue)( étranger| voyageur| messire| mon seigneur)(.| !)"
+    ]
+}

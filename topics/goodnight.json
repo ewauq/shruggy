@@ -1,0 +1,12 @@
+{
+    "expressions": [
+        "(bonne (nuit|soirée)|good[\\s]?night|bon[\\s]?soir)"
+    ],
+    "responses": [
+        "#(Bisou|Salut|Bye|Bye bye|\\+\\+)(.| !)",
+        "#(Bisou|Salut|Bye|Bye bye)(, fait de beaux rêves|, bonne nuit|, à demain)(.| !)",
+        "#(Dormir ? C'est pour les humains ça...)",
+        "#(À la prochaine)(.| !)",
+        "Des bisous ! :heart:"
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "expressions": [
+        "(te faire foutre|abruti|batard|blaireau|bou(f){1,2}on|bouseu(x)?|chiant|co(n){1,2}ar(d)?|chieur|co(n){1,2}asse|couille(s)?|couillon)",
+        "(crétin|débile|encul(é|er)|enflure|fils de pute|fpd|fumier|gland|grognasse|(gros|sale) con|handicapé|merde|na(s|z)e|nazi)",
+        "(p(é)?d(é)?|pou(r){1,2}i|pute|p(é|e)dophile|p(é|e)tasse|raclure|relou|sal(aud|o)|tape(t){1,2}e|teubé|tocar(d)?|trainé(e)?|tri(s|z)o|trou du cul)",
+        "(trouduc|un con|une grosse merde|une merde)"
+    ],
+    "responses": [
+        ":broken_heart:",
+        "Bah dis donc, ton langage est évolué, c'est incroyable.",
+        "De si vilains mots...",
+        "Ha ça... les insultes, c'est le langage des faibles, et des humains.",
+        "Hé beh ho, t'en dis des vilaines choses.",
+        "Hé ça me blesse ce que tu dis... :(",
+        "Booohooo j'ai peur, au secours.",
+        "Les insultes d'humains, c'est drôle.",
+        "Ne dis pas des choses que tu pourrais regretter.",
+        "Ne pas ce genre de choses.",
+        "Oh la la, comment j'ai peur, je treeeeemble, ou pas.",
+        "T'as appris ça à l'école ?",
+        "Toi-même d'abord.",
+        "Tu veux qu'on s'battez ?",
+        "Tout de suite les grands mots...",
+        "Tu essayes de me faire pleurer ? Essaye encore.",
+        "Tu me brises le coeur :broken_heart: "
+    ]
+}

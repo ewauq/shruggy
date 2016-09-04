@@ -1,0 +1,13 @@
+{
+    "expressions": [
+        "(tout|tu) va[s]? (bien|comme tu veu(x|t))\\s?(.+)?\\?|(comment) (tu|va(s)?)[-]?[\\s]?(tu|va(s)?|te sen(s|t))\\s?(.+)?\\?|(c|ç)a (va|roule|se passe)(.+)\\?"
+    ],
+    "responses": [
+        "#(Je vais bien|Tout va bien|Ça roule|Tout va bien|Je me porte à merveille|Tout va pour le mieux|Je me sens bien|Je crois que ça va plutôt bien|Je pète la forme|Je pète le feu)(, merci|, c'est gentil|, mon pote)(.| !)",
+        "Je suis un robot, alors ça va écoute.",
+        "Je ne suis qu'un robot, elle est bête ta question.",
+        "Tant qu'on ne me débranche pas, tout va bien.",
+        "Bah je suis un robot, donc tant que je suis en ligne, ça va.",
+        "Maintenant que tu es là, ça va beacoup mieux ! :heart:"
+    ]
+}

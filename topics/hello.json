@@ -1,0 +1,13 @@
+{
+    "mention_only" : true,
+    "expressions" : [
+        "\\b(hello|salut|yop|ola|bonjour|bienvenu(e)?|coucou)\\b",
+        "\\b(cc|slt|bj|yo|hey|hi)\\b"
+    ],
+    "responses": [
+        "#(Bonjour|Hello|Salut|Yop)(.| !| :v::skin-tone-3:| :slight_smile:)"
+    ],
+    "tags": [
+        "(salutation)"
+    ]
+}

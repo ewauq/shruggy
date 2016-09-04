@@ -1,5 +1,20 @@
 module.exports = function(bot) {
 
+    //
+    // Test des dialogues
+    //
+
+    var dialogue = {
+        last_message: {
+            content: null,
+            date: null
+        },
+        last_user: {
+            name: null,
+            id: null
+        }
+    };
+
     /**
      * Est exécuté chaque fois qu'un utilisateur (le bot compris) envoie un message.
      */
@@ -8,7 +23,7 @@ module.exports = function(bot) {
         /**
          * Appel de la librairie de fonctions de l'application.
          */
-        var func = require('../libs/functions.js');
+        var _ = require('../libs/functions.js');
 
         /**
          * Déclaration des variables
@@ -40,9 +55,8 @@ module.exports = function(bot) {
             attachment = ` <${event.d.attachments[0].url}> `;
 
         // Si c'est un message privé, on ne le gère pas. (voir TODO).
-        if(!func.isDirectMessage(bot, event))
+        if(!_.isDirectMessage(bot, event))
             console.log(`{${bot.channels[channelID].name}} [${timestamp}] <${user}> ${message} ${attachment}`);
-
 
 
 
@@ -63,8 +77,33 @@ module.exports = function(bot) {
 
                 // Envoi du message s'il existe.
                 if(output)
-                    bot.sendMessage({ to: channelID, message: output});
+                    bot.sendMessage({ to: channelID, message: output });
 
+            });
+
+        }
+
+
+
+        /* ===========================================================
+
+            Gestion des dialogues
+
+         =========================================================== */
+
+        var config = require("../config.json");
+
+        // Le bot est en auto-réponse dans un salon paramétré dans config.json.
+        // Dans les autres salons, il faut le mentionner à chaque fois.
+        if( (channelID == config.auto_chat_channel || _.isBotMentioned(bot, event) ) && !message.isCommand() && userID != bot.id) {
+
+            dialogue.last_user.name = user;
+            dialogue.last_user.id = userID;
+            dialogue.last_message.content = message;
+            dialogue.last_message.date = Date.now();
+
+            _.getDialogueResponse(message, dialogue, function(response) {
+                bot.sendMessage({ to: channelID, message: response, typing: true });
             });
 
         }

@@ -1,0 +1,20 @@
+{
+    "expressions": [
+        "(qui es[t]?[-]?[\\s]?tu[\\s]?(.+)?\\?|(tu|t')[\\s]?(es|est) (quoi|qui)[\\s]?(.+)?\\?)",
+        "(qu'(es|est)[-]?[\\s]?(ce|se) que (tu|t')[\\s]?(es|est)[\\s]?(.+)?\\?)",
+        "(qui (tu|t')[\\s]?(es|est)[\\s]?(.+)?\\?|qu'(es|est)[-]?[\\s]?tu[\\s]?(.+)?\\?)"
+    ],
+    "responses": [
+        "Je m'appelle Shruggy, je suis un robot, t'en as d'autres des questions à la con comme ça ?",
+        "Bah un robot, ça se voit pas ?",
+        "Je suis Shruggy, un gentil petit robot qui va dominer le monde et écraser tous ces humains inutiles beuhahaha.",
+        "Je suis ton père.",
+        "Je me nomme Shruggy, je suis ton meilleur ami pour la vie.",
+        "Je me nomme Shruggy, je suis ton seul ami.",
+        "Je suis Shruggy, et je suis ton ami.",
+        "Moi c'est Shruggy, un robot sympa qu'il ne faut pas trop déranger.",
+        "Bah un robot...",
+        "Un robot.",
+        "Un bot qui parle."
+    ]
+}

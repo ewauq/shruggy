@@ -1,0 +1,10 @@
+{
+    "expressions": [
+        "\\b(au revoir|alle(z|r) (salu(t)?|slt|bye)|bye|(à|a) plus|good[\\s]?bye|j(')?y vais|je m(')?en vais|j(e\\s)?me casse)\\b",
+        "(à|a)[\\+]+",
+        "(à|a) demain"
+    ],
+    "responses": [
+        "#(Bisou, à bientôt|À plus tard|Salut|À bientôt|Tu me manques déjà|Ok, à plus tard|À la prochaine|\\+\\+|Bye)(.| !)"
+    ]
+}
