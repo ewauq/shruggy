@@ -2,5 +2,6 @@
     "token": "MjEyNTI2ODQwMDg1MDg2MjA5.CqOX_w.iXNuEwGrJg7J5ZlenQW6Zcpkoz8",
     "autorun": true,
     "command_prefix": "/",
-    "avatar_file": "shruggy.png"
+    "avatar_file": "shruggy.png",
+    "auto_chat_channel": "213255127933517824"
 }
