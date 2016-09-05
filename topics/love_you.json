@@ -2,7 +2,9 @@
     "expressions": [
         "(j(e\\s)?t(')?aime|i (love|heart|(c|k)oeur) y(ou|a)|j(e\\s?)te (love|kiff|baise)|jtm)",
         "t(\\'|u)[\\s]?(est|es)\\s(le)?[\\s]?(meilleur|best|g(é|enial)|excellent|bal(è|e)(s|z)e)",
-        "t(\\'|u)[\\s]?(est|es)\\s(le)?[\\s]?plus\\s(fort|beau|meilleur|best|g(é|e)nial|excellent|bal(è|e)(s|z)e)"
+        "t(\\'|u)[\\s]?(est|es)\\s(le)?[\\s]?plus\\s(fort|beau|meilleur|best|g(é|e)nial|excellent|bal(è|e)(s|z)e)",
+        ":heart:",
+        "🍑[\\s]?🍆"
     ],
     "responses": [
         "Moi aussi je t'aime <3",

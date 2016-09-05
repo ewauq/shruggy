@@ -3,7 +3,8 @@
         "(te faire foutre|abruti|batard|blaireau|bou(f){1,2}on|bouseu(x)?|chiant|co(n){1,2}ar(d)?|chieur|co(n){1,2}asse|couille(s)?|couillon)",
         "(crétin|débile|encul(é|er)|enflure|fils de pute|fpd|fumier|gland|grognasse|(gros|sale) con|handicapé|merde|na(s|z)e|nazi)",
         "(p(é)?d(é)?|pou(r){1,2}i|pute|p(é|e)dophile|p(é|e)tasse|raclure|relou|sal(aud|o)|tape(t){1,2}e|teubé|tocar(d)?|trainé(e)?|tri(s|z)o|trou du cul)",
-        "(trouduc|un con|une grosse merde|une merde)"
+        "(trouduc|un con|une grosse merde|une merde)",
+        "(ta gueule|tg)"
     ],
     "responses": [
         ":broken_heart:",
@@ -22,6 +23,6 @@
         "Tu veux qu'on s'battez ?",
         "Tout de suite les grands mots...",
         "Tu essayes de me faire pleurer ? Essaye encore.",
-        "Tu me brises le coeur :broken_heart: "
+        "Tu me brises le coeur :broken_heart:"
     ]
 }
