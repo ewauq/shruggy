@@ -1,6 +1,6 @@
 {
     "expressions": [
-        "(quel[le]? temp[s]?|quel[le]? météo|la météo de|quel[le]? temp(é|e)rature) fera"
+        "(quel[le]? temp[s]?|quel[le]? météo|la météo de|quel[le]? temp(é|e)rature)"
     ],
     "responses": [
         "Bah j'en sais rien moi, va chercher sur Internet.",
