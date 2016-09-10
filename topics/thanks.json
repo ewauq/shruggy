@@ -1,0 +1,8 @@
+{
+    "expressions": [
+        "\\b(merci|cimer|thank you|thx|thanks|kthxbye|k thx bye)\\b"
+    ],
+    "responses": [
+        "#(De rien|C'est un plaisir|Pas de quoi|Tout le plaisir est pour moi)(.| !)"
+    ]
+}
