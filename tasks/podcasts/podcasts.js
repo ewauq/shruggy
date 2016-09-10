@@ -3,9 +3,9 @@ var task = {
     timer: 600000,
     output_channel: "213255127933517824",
     responses: [
-        ":microphone2:  Nouveau podcast de ${name} : **${title}** > ${url}",
-        ":microphone2:  ${name} vient de publier un nouveau podcast : **${title}** > ${url}",
-        ":microphone2:  ${name} vient de mettre en ligne un podcast : **${title}** > ${url}"
+        "🎙  Nouveau podcast de ${name} : **${title}** > ${url}",
+        "🎙  ${name} vient de publier un nouveau podcast : **${title}** > ${url}",
+        "🎙  ${name} vient de mettre en ligne un podcast : **${title}** > ${url}"
     ]
 };
 
