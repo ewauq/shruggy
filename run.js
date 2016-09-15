@@ -1,37 +1,46 @@
-/**
- * Importation des modules et autres librairies.
- */
+// Variable de calcul du temps de chargement.
+var start_time = new Date();
 
-// Appel du module discord.io obligatoire.
-var Discord = require('discord.io');
-
-// Récupération de la configuration.
-var config = require("./libs/config.js"), config = config();
-
+console.log("[INFO] Chargement du bot en cours...");
 
 /**
- * Lancement et connexion du bot.
+ * Appel des modules et librairies.
  */
-var bot = new Discord.Client({
-	token: config.token,
-	autorun: config.autorun
-});
 
-// Si le token du bot n'est pas renseigné.
-if(config.token == "<bot_token_here>") {
-    console.log("[ERREUR] Vous devez renseigner le token du bot dans config.json.");
-    return;
+try {
+    // Appel du module discord.io obligatoire.
+    var Discord = require("discord.io");
+
+    // Récupération de la configuration.
+    // Si le fichier config.json n'existe pas, il est créé avec la configuration par défaut.
+    var config = require("./lib/config.js"), config = config();
+
+    // On vérifie si le token du bot n'est pas renseigné.
+    if(config.token == "<bot_token_here>") {
+        console.log("[ERREUR] Vous devez renseigner le token du bot dans config.json.");
+        process.exit(1);
+    }
+
+    // Lancement et connexion du bot, et injection des propriétés personnalisées.
+    var bot = new Discord.Client({
+    	token: config.token,
+    	autorun: config.autorun
+    }),
+    bot = require("./lib/bot.js")(bot);
+
+    // Chargement des prototypes modifiés.
+    require("./lib/prototypes.js")
+
+    // Chargement des événements.
+    require('./events/disconnect.js')(bot);
+    require('./events/message.js')(bot);
+    require('./events/any.js')(bot);
+    require('./events/presence.js')(bot);
+    require('./events/ready.js')(bot, start_time);
+
 }
 
-
-/**
- * Chargement des librairies d'évènements.
- *
- * Le paramètre {object} bot est obligatoire.
- */
-require('./events/onReady.js')(bot);
-require('./events/onDisconnect.js')(bot);
-require('./events/onMessage.js')(bot);
-require('./events/onAny.js')(bot);
-
-console.log("[INFO] Le chargement du bot s'est déroulé avec succès.");
+catch(e) {
+    console.log(`[ERREUR] ${e.message}`);
+	process.exit(1);
+}

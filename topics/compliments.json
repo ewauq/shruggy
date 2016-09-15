@@ -1,0 +1,21 @@
+{
+    "expressions": [
+        "(tu es[t]?|t'es[t]?)\\s(trop|super|ultra|tr(è|e)s|vraiment|grave|un|une)?(.)+?((é|e)norme|(é|e)to[n]+ant|cool|admirable|adorable|aimable|amusant|beau|bri[l]+ant|charmant|chou|choupi(nou|net|né)?)",
+        "(tu es[t]?|t'es[t]?)\\s(trop|super|ultra|tr(è|e)s|vraiment|grave|un|une)?(.)+?(comique|d(é|e)lica(t|s)?|d(é|e)lirant|d(é|e)lire|d(é|e)sopilant|divin|dr(o|ô)le|drolatique|exce[l]+ent|extraordinaire)",
+        "(tu es[t]?|t'es[t]?)\\s(trop|super|ultra|tr(è|e)s|vraiment|grave|un|une)?(.)+?(fantastique|formidable|fort|g(e|é)nial|g(é|e)niali[s]+ime|gentil|hi[l]+arant|joli|ma[r]+ant|mervei[l]+eu[x]?)",
+        "(tu es[t]?|t'es[t]?)\\s(trop|super|ultra|tr(è|e)s|vraiment|grave|un|une)?(.)+?(parfai(t|s)?|pas piqu(é|e|er) des (ha[n]?etons|vers)|remarquable|rigolo|sensatio[n]+el|serviable|splendide)",
+        "(tu es[t]?|t'es[t]?)\\s(trop|super|ultra|tr(è|e)s|vraiment|grave|un|une)?(.)+?(sublime|super|sympa|tordant|un champion)"
+    ],
+    "responses": [
+        "#(T'es pas mal non plus)(.| !|, merci.| l'ami.| :wink:| :sunglasses:)",
+        "#(Dans ton genre, tu n'es pas mal non plus)(.| !| :wink:| :sunglasses:)",
+        "#(Oh tu n'es pas mal non plus)(.| !|, merci.| l'ami.| :wink:| :sunglasses:)",
+        "#(Merci du compliment)(.| !| l'ami.| :wink:| :sunglasses:)",
+        "#(C'est réciproque)(.| !|, merci.| l'ami.| :wink:| :sunglasses:)",
+        "#(J'allais te dire la même chose)(.| !|, merci.| l'ami.| :wink:| :sunglasses:)",
+        "#(Oh, merci)(.| !| :wink:| :sunglasses:)",
+        "#(C'est très gentil, merci)(.| !| :wink:| :sunglasses:)",
+        ":wink:",
+        ":sunglasses:"
+    ]
+}

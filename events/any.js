@@ -10,6 +10,4 @@ module.exports = function(bot) {
 
     });
 
-}
-
-console.log('[INFO] onAny.js chargé.');
+};
