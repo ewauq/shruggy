@@ -57,14 +57,7 @@ module.exports = {
 
         // Gestion des erreurs
         catch(e) {
-
-            if(!this.responses) {
-                this.error = `Les phrases de réponses de la commande <${this.name}> n'ont pas été trouvées.`;
-            }
-            else {
-                this.error = `La commande <${this.name}> a provoqué une erreur : ${e.message}`;
-            }
-
+            this.error = `La commande <${this.name}> a provoqué une erreur : ${e.message}`;
         }
 
         // Quoiqu'il arrive, on fait appel au callback.
