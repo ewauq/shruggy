@@ -15,6 +15,7 @@
         "Bah écoute, c'est cool.",
         "Les humains sont ennuyeux."
     ],
+
     "already_answered": [
         "Visiblement, il faut répéter plusieurs fois pour que les humains comprennent les choses.",
         "J'ai comme l'impression qu'on s'amuse à me faire répéter...",
@@ -30,5 +31,17 @@
         "En voilà un dialogue intéressant.",
         "Ce n'est pas la peine de le répéter plusieurs fois.",
         "Ce n'est pas la peine de répéter la même chose."
+    ],
+
+    "filtered_message": [
+        "#(Pas de shitposting, merci)(.| !| :wink:)",
+        "#(Évite ce genre de choses ici, merci)(.| !| :wink:))",
+        "#(Le shitposting n'est pas autorisé ici, merci)(.| !| :wink:))",
+        "#(Faut éviter de poster ce genre de choses ici, merci)(.| !| :wink:))",
+        "#(Merci d'utiliser les messages privés pour ce genre de choses)(.| !| :wink:))",
+        "#(Ce genre de choses est n'est pas autorisé dans ce salon, merci)(.| !| :wink:))",
+        "#(C'est gentil, mais non merci. On ne poste pas ce genre de choses ici)(.| !| :wink:))",
+        "#(Non merci, on ne poste pas de choses de ce genre ici)(.| !| :wink:))",
+        "#(Il vaut mieux éviter ce genre de choses dans ce salon, merci)(.| !| :wink:))"
     ]
 }

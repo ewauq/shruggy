@@ -1,7 +1,16 @@
 {
-    "token": "MjEyNTI2ODQwMDg1MDg2MjA5.CqOX_w.iXNuEwGrJg7J5ZlenQW6Zcpkoz8",
+    "token": "MjE4NjkwNjU1MDgwMTUzMDg5.Cq4fFw.9rfCbbyRe_mkSiH835F0QLVKXl4",
     "autorun": true,
     "command_prefix": "/",
-    "avatar_file": "shruggy.png",
-    "auto_chat_channel": "213255127933517824"
+    "avatar_file": "dumby.png",
+    "auto_chat_channel": "218689835886444547",
+    "blacklisted_exp": [
+        "*spi0n.com",
+        "*dailymotion.com/Spi0n",
+        "*facebook.com/Spi0n",
+        "*youtube.com/user/Spi0nd0tcom",
+        "*4chan.[org|net|com]",
+        "*(xvideos.com|xhamster.com|pornhub.com|xnxx.com|redtube.com|youporn.com|tube8.com|youjizz.com|privatehomeclips.com|gaytube.com|beeg.com|hardsextube.com|drtuber.com)",
+        "*(spankwire.|porn.com|jacquieetmicheltv.net|sitedeouf.|rotten.)"
+    ]
 }

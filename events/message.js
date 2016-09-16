@@ -10,6 +10,12 @@ module.exports = function(bot) {
 
 
         /**
+         * Filtrage des expressions blacklistées
+         */
+
+        message.filterMessage();
+
+        /**
          *
          * Gestion des commandes
          *
