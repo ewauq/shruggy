@@ -51,7 +51,6 @@ module.exports = {
                 var response = JSON.parse(req.responseText);
 
                 // Récupération d'une phrase aléatoire et remplacement des littéraux.
-                // Remplace également le caractère html &amp; en &.
                 this.output = response.file;
 
             }
