@@ -34,14 +34,14 @@
     ],
 
     "filtered_message": [
-        "#(⛔   Message supprimé : pas de shitposting, merci)(.| !| :wink:)",
-        "#(⛔   Message supprimé : évite ce genre de choses ici, merci)(.| !| :wink:))",
-        "#(⛔   Message supprimé : le shitposting n'est pas autorisé ici, merci)(.| !| :wink:))",
-        "#(⛔   Message supprimé : faut éviter de poster ce genre de choses ici, merci)(.| !| :wink:))",
-        "#(⛔   Message supprimé : merci d'utiliser les messages privés pour ce genre de choses)(.| !| :wink:))",
-        "#(⛔   Message supprimé : ce genre de choses est n'est pas autorisé dans ce salon, merci)(.| !| :wink:))",
-        "#(⛔   Message supprimé : c'est gentil, mais non merci. On ne poste pas ce genre de choses ici)(.| !| :wink:))",
-        "#(⛔   Message supprimé : non merci, on ne poste pas de choses de ce genre ici)(.| !| :wink:))",
-        "#(⛔   Message supprimé : il vaut mieux éviter ce genre de choses dans ce salon, merci)(.| !| :wink:))"
+        "#(Message supprimé : pas de shitposting, merci)(.| !| :wink:)",
+        "#(Message supprimé : évite ce genre de choses ici, merci)(.| !| :wink:))",
+        "#(Message supprimé : le shitposting n'est pas autorisé ici, merci)(.| !| :wink:))",
+        "#(Message supprimé : faut éviter de poster ce genre de choses ici, merci)(.| !| :wink:))",
+        "#(Message supprimé : merci d'utiliser les messages privés pour ce genre de choses)(.| !| :wink:))",
+        "#(Message supprimé : ce genre de choses est n'est pas autorisé dans ce salon, merci)(.| !| :wink:))",
+        "#(Message supprimé : c'est gentil, mais non merci. On ne poste pas ce genre de choses ici)(.| !| :wink:))",
+        "#(Message supprimé : non merci, on ne poste pas de choses de ce genre ici)(.| !| :wink:))",
+        "#(Message supprimé : il vaut mieux éviter ce genre de choses dans ce salon, merci)(.| !| :wink:))"
     ]
 }
