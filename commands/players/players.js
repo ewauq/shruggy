@@ -59,7 +59,7 @@ module.exports = {
         // Exécution normale du code.
         try {
 
-            var tools = require("../lib/functions.js");
+            var tools = require("../../lib/functions.js");
 
             // Récupération du message.
             var input = message.content.toLowerCase();
@@ -82,7 +82,7 @@ module.exports = {
 
                     // Chargement des modules.
                     var osmosis = require('osmosis');
-                    var tools = require("../lib/functions.js");
+                    var tools = require("../../lib/functions.js");
                     require("string_score");
 
                     this.search = function(keywords, _callback) {

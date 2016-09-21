@@ -32,8 +32,8 @@ module.exports = {
         // Exécution normale du code.
         try {
 
-            var tools = require("../lib/functions.js");
-            var config = require("../config.json");
+            var tools = require("../../lib/functions.js");
+            var config = require("../../config.json");
             var fs = require('fs');
 
             var command_list = "";
@@ -44,7 +44,7 @@ module.exports = {
             // Pour chaque commande présente, on récupère sa description.
             for(var i in commands) {
 
-                var cmd = require(`./${commands[i]}`);
+                var cmd = require(`../${commands[i]}/${commands[i]}.js`);
 
                 if(cmd.description)
                     command_list = command_list + cmd.description.template({ prefix: config.command_prefix }) + "\n";

@@ -4,19 +4,18 @@ module.exports = {
      * Paramètres de la commande.
      */
 
-    name: "ping",
+    name: "coin",
 
-    description: "**${prefix}ping**  Retourne un ping, c'est tout.",
+    description: "**${prefix}pile ${prefix}face**  Lance une pièce et retourne le côté visible.",
 
     triggers: [
-        "ping"
+        "pile",
+        "face"
     ],
 
     responses: [
-        "Pong.",
-        "Pong !",
-        "PONG !",
-        ":ping_pong:"
+        "Je lance une pièce... **PILE**.",
+        "Je lance une pièce... **FACE**."
     ],
 
 
@@ -32,8 +31,14 @@ module.exports = {
         // Exécution normale du code.
         try {
 
-            var tools = require("../lib/functions.js");
-            this.output = tools.randomize(this.responses);
+            var tools = require("../../lib/functions.js");
+
+            var input = message.content.toLowerCase();
+            var trigger = input.substr(1, input.length);
+            var response = tools.randomize(this.responses);
+            var state = (response.toLowerCase().indexOf(trigger) > -1)? "\nGagné ! :thumbsup::skin-tone-3:" : "\nPerdu...  :thumbsdown::skin-tone-3:" ;
+
+            this.output = `${response} ${state}`;
 
         }
 

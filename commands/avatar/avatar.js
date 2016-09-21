@@ -14,18 +14,18 @@ module.exports = {
     ],
 
     responses: [
-     "Voici l'avatar de **${username}** : ${url}"
+        "Voici l'avatar de **${username}** : ${url}"
     ],
 
     errors: [
-     "J'ai besoin que tu mentionnes un utilisateur.",
-     "Il me faut un utilisateur mentionné après la commande.",
-     "Cette commande a besoin de la mention d'un utilisateur. ",
-     "Cette commande nécessite la mention d'un utilisateur.",
-     "Après la commande, j'ai besoin de la mention d'un utilisateur.",
-     "J'ai besoin d'une mention avec cette commande.",
-     "Tu as oublié de mentionner un utilisateur.",
-     "Il faut préciser un utilisateur en le mentionnant."
+        "J'ai besoin que tu mentionnes un utilisateur.",
+        "Il me faut un utilisateur mentionné après la commande.",
+        "Cette commande a besoin de la mention d'un utilisateur. ",
+        "Cette commande nécessite la mention d'un utilisateur.",
+        "Après la commande, j'ai besoin de la mention d'un utilisateur.",
+        "J'ai besoin d'une mention avec cette commande.",
+        "Tu as oublié de mentionner un utilisateur.",
+        "Il faut préciser un utilisateur en le mentionnant."
     ],
 
 
@@ -41,7 +41,7 @@ module.exports = {
         // Exécution normale du code.
         try {
 
-            var tools = require("../lib/functions.js");
+            var tools = require("../../lib/functions.js");
 
             // Si aucune mention n'est précisée.
             if(message.mentions.length == 0) {
