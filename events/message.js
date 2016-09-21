@@ -26,7 +26,7 @@ module.exports = function(bot) {
             // Exécution de la commande.
             var command = require("../lib/command.js");
 
-            command(message, function(output, error) {
+            command(message, function(output, error, params) {
 
                 // Si la commande retourne une erreur, on la gère.
                 if(error)
